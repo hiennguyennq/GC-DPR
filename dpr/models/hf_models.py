@@ -126,6 +126,10 @@ class HFBertEncoder(BertModel):
             sequence_output, pooled_output = super().forward(input_ids=input_ids, token_type_ids=token_type_ids,
                                                              attention_mask=attention_mask)
             print("B")
+
+        print(input_ids)
+        print(token_type_ids)
+        print(attention_mask)
         print(pooled_output)
         print(type(sequence_output))
         print(sequence_output, "\n---------------------\n")
