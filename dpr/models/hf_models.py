@@ -18,8 +18,8 @@ from torch import nn
 #from transformers.modeling_bert import BertConfig, BertModel
 from transformers.models.bert.modeling_bert import BertModel,BertConfig
 from transformers.optimization import AdamW
-from transformers.tokenization_bert import BertTokenizer
-from transformers.tokenization_roberta import RobertaTokenizer
+from transformers.models.bert.tokenization_bert import BertTokenizer
+from transformers import RobertaTokenizer
 
 from dpr.utils.data_utils import Tensorizer
 from .biencoder import BiEncoder
