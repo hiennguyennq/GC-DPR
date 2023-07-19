@@ -16,7 +16,7 @@ import torch
 from torch import Tensor as T
 from torch import nn
 #from transformers.modeling_bert import BertConfig, BertModel
-from transformers.models.bert.modeling_bert import BertModel,BertConfig
+from transformers import BertModel,BertConfig
 from transformers.optimization import AdamW
 from transformers.models.bert.tokenization_bert import BertTokenizer
 from transformers import RobertaTokenizer
