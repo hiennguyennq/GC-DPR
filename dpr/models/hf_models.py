@@ -120,21 +120,14 @@ class HFBertEncoder(BertModel):
             sequence_output, pooled_output, hidden_states = super().forward(input_ids=input_ids,
                                                                             token_type_ids=token_type_ids,
                                                                             attention_mask=attention_mask)
-            print("A")
         else:
             hidden_states = None
             super_forward = super().forward(input_ids=input_ids, token_type_ids=token_type_ids,
                                                              attention_mask=attention_mask)
-            sequence_output = super_forward.sequence_output
+                                  
+            sequence_output = super_forward.last_hidden_state
             pooled_output = super_forward.pooler_output
-            print("B")
 
-        print(input_ids)
-        print(token_type_ids)
-        print(attention_mask)
-        print(pooled_output)
-        print(type(sequence_output))
-        print(sequence_output, "\n---------------------\n")
         pooled_output = sequence_output[:, 0, :]
         if self.encode_proj:
             pooled_output = self.encode_proj(pooled_output)
