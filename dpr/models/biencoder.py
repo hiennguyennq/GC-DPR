@@ -180,6 +180,12 @@ class BiEncoder(nn.Module):
             sample_ctxs_tensors = [tensorizer.text_to_tensor(ctx['text'], title=ctx['title'] if insert_title else None)
                                    for
                                    ctx in all_ctxs]
+            try:
+              sample_ctxs_tensors = [tensorizer.text_to_tensor(ctx['text'], title=ctx['title'] if insert_title else None)
+                                    for
+                                    ctx in all_ctxs]
+            except:
+              print("Except: ", all_ctxs)
 
             ctx_tensors.extend(sample_ctxs_tensors)
             positive_ctx_indices.append(current_ctxs_len)
